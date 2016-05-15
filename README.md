@@ -5,7 +5,7 @@ Home: http://symas.com/mdb/
 
 Package license: OpenLDAP Public License
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: A high-performance embedded transactional key-value store database.
 
@@ -69,9 +69,15 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/lmdb-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/lmdb-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/lmdb-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/lmdb-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/lmdb-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/lmdb-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lmdb/badges/version.svg)](https://anaconda.org/conda-forge/lmdb)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lmdb/badges/downloads.svg)](https://anaconda.org/conda-forge/lmdb)
 
 
 Updating lmdb-feedstock
