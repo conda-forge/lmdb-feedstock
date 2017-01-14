@@ -26,7 +26,7 @@ test:
 
 about:
   home: http://symas.com/mdb/
-  license: OpenLDAP Public License
+  license: OpenLDAP Public
   summary: A high-performance embedded transactional key-value store database.
 
 extra:
