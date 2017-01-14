@@ -12,7 +12,7 @@ source:
     - Makefile.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 test:
@@ -26,7 +26,8 @@ test:
 
 about:
   home: http://symas.com/mdb/
-  license: OpenLDAP Public License
+  license: OpenLDAP Public
+  license_file: libraries/liblmdb/LICENSE
   summary: A high-performance embedded transactional key-value store database.
 
 extra:

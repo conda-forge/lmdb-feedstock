@@ -3,7 +3,7 @@ About lmdb
 
 Home: http://symas.com/mdb/
 
-Package license: OpenLDAP Public License
+Package license: OpenLDAP Public
 
 Feedstock license: BSD 3-Clause
 
