@@ -14,14 +14,16 @@ Summary: A high-performance embedded transactional key-value store database.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/lmdb-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/lmdb-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/lmdb-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/lmdb-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/lmdb-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/lmdb-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/lmdb-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/lmdb-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lmdb/badges/version.svg)](https://anaconda.org/conda-forge/lmdb)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/lmdb/badges/downloads.svg)](https://anaconda.org/conda-forge/lmdb)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lmdb-green.svg)](https://anaconda.org/conda-forge/lmdb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lmdb.svg)](https://anaconda.org/conda-forge/lmdb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lmdb.svg)](https://anaconda.org/conda-forge/lmdb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lmdb.svg)](https://anaconda.org/conda-forge/lmdb) |
 
 Installing lmdb
 ===============
