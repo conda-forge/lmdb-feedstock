@@ -17,6 +17,11 @@ build:
   number: {{ build }}
   skip: true  # [win]
 
+requirements:
+  build:
+    - make
+    - {{ compiler('c') }}
+
 test:
   commands:
     - mdb_copy -V                                    # [unix]
