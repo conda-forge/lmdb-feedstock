@@ -1,7 +1,11 @@
 #!/bin/bash
 
 cd libraries/liblmdb/
-export DESTDIR=$PREFIX
-make
+
+if [[ -z "${AR}" ]]; then
+  AR=ar
+fi
+
+make CC=$CC AR=$AR prefix=$PREFIX
 make test
 make install
