@@ -9,6 +9,9 @@ set "DESTDIR=%LIBRARY_PREFIX%"
 set "SOEXT=.dll"
 set "CC=%CC%"
 
+:: disable gcc-style options that MSVC doesn't understand
+set "CFLAGS=%CFLAGS%"
+
 :: only build shared lib, don't build programs & docs
 set "ILIBS=liblmdb.dll"
 set "IPROGS="
