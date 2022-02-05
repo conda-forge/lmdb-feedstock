@@ -8,7 +8,7 @@ source:
   url: https://github.com/LMDB/lmdb/archive/LMDB_{{ version }}.tar.gz
   sha256: 44602436c52c29d4f301f55f6fd8115f945469b868348e3cddaf91ab2473ea26
   patches:
-    - Makefile.patch
+    - patches/Makefile.patch
 
 build:
   number: 0
