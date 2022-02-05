@@ -21,12 +21,23 @@ requirements:
 
 test:
   commands:
+    # binaries
     - mdb_copy -V                                    # [unix]
     - mdb_dump -V                                    # [unix]
     - mdb_load -V                                    # [unix]
     - mdb_stat -V                                    # [unix]
-    - test -f ${PREFIX}/lib/liblmdb.a                # [unix]
+
+    # shared:
     - test -f ${PREFIX}/lib/liblmdb.so               # [unix]
+    - if not exist %LIBRARY_BIN%\lmdb.dll exit 1     # [win]
+
+    # TODO: do we want to do have static libraries at all?
+    # static:
+    - test -f ${PREFIX}/lib/liblmdb.a                # [not win]
+
+    # headers:
+    - test -f ${PREFIX}/include/lmdb.h               # [unix]
+    - if not exist %LIBRARY_INC%\lmdb.h exit 1       # [win]
 
 about:
   home: https://www.openldap.org/software/repo.html
