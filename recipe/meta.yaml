@@ -43,10 +43,9 @@ about:
   license: OLDAP-2.8
   license_file: libraries/liblmdb/LICENSE
   summary: A high-performance embedded transactional key-value store database.
-  # careful: the gitlab repo has different branches for very
-  # different projects - relevant here are the ones called mdb.*;
-  # also: there's a mirror under https://github.com/LMDB/lmdb
-  dev_url: https://git.openldap.org/openldap/openldap/-/tree/mdb.master
+  # this is a mirror; the original sources come from gitlab, see
+  # https://git.openldap.org/openldap/openldap/-/tree/mdb.master
+  dev_url: https://github.com/LMDB/lmdb
 
 extra:
   recipe-maintainers:
