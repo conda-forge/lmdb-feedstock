@@ -1,20 +1,17 @@
 {% set version = "0.9.24" %}
-{% set sha256 = "44602436c52c29d4f301f55f6fd8115f945469b868348e3cddaf91ab2473ea26" %}
-{% set build = 0 %}
 
 package:
   name: lmdb
   version: {{ version }}
 
 source:
-  fn: LMDB_{{ version }}.tar.gz
   url: https://github.com/LMDB/lmdb/archive/LMDB_{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 44602436c52c29d4f301f55f6fd8115f945469b868348e3cddaf91ab2473ea26
   patches:
-    - Makefile.patch
+    - patches/Makefile.patch
 
 build:
-  number: {{ build }}
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -24,19 +21,31 @@ requirements:
 
 test:
   commands:
-    - mdb_copy -V                                    # [unix]
-    - mdb_dump -V                                    # [unix]
-    - mdb_load -V                                    # [unix]
-    - mdb_stat -V                                    # [unix]
-    - test -f ${PREFIX}/lib/liblmdb.a                # [unix]
-    - test -f ${PREFIX}/lib/liblmdb.so               # [unix]
+    # binaries
+    - mdb_copy -V
+    - mdb_dump -V
+    - mdb_load -V
+    - mdb_stat -V
+
+    # presence of shared lib:
+    - test -f ${PREFIX}/lib/liblmdb.so
+
+    # absence of static lib:
+    - test ! -f ${PREFIX}/lib/liblmdb.a
+
+    # headers:
+    - test -f ${PREFIX}/include/lmdb.h
 
 about:
-  home: http://symas.com/mdb/
-  license: OpenLDAP Public
+  home: https://www.openldap.org/software/repo.html
+  license: OLDAP-2.8
   license_file: libraries/liblmdb/LICENSE
   summary: A high-performance embedded transactional key-value store database.
+  # this is a mirror; the original sources come from gitlab, see
+  # https://git.openldap.org/openldap/openldap/-/tree/mdb.master
+  dev_url: https://github.com/LMDB/lmdb
 
 extra:
   recipe-maintainers:
     - jakirkham
+    - h-vetinari
