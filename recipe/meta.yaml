@@ -22,21 +22,19 @@ requirements:
 test:
   commands:
     # binaries
-    - mdb_copy -V                                    # [unix]
-    - mdb_dump -V                                    # [unix]
-    - mdb_load -V                                    # [unix]
-    - mdb_stat -V                                    # [unix]
+    - mdb_copy -V
+    - mdb_dump -V
+    - mdb_load -V
+    - mdb_stat -V
 
     # presence of shared lib:
-    - test -f ${PREFIX}/lib/liblmdb.so               # [unix]
-    - if not exist %LIBRARY_BIN%\lmdb.dll exit 1     # [win]
+    - test -f ${PREFIX}/lib/liblmdb.so
 
     # absence of static lib:
-    - test ! -f ${PREFIX}/lib/liblmdb.a              # [not win]
+    - test ! -f ${PREFIX}/lib/liblmdb.a
 
     # headers:
-    - test -f ${PREFIX}/include/lmdb.h               # [unix]
-    - if not exist %LIBRARY_INC%\lmdb.h exit 1       # [win]
+    - test -f ${PREFIX}/include/lmdb.h
 
 about:
   home: https://www.openldap.org/software/repo.html
