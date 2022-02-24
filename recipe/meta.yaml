@@ -27,13 +27,15 @@ test:
     - mdb_stat -V
 
     # presence of shared lib:
-    - test -f ${PREFIX}/lib/liblmdb.so
+    - test -f ${PREFIX}/lib/liblmdb.so               # [unix]
+    - if not exist %LIBRARY_BIN%\lmdb.dll exit 1     # [win]
 
     # absence of static lib:
-    - test ! -f ${PREFIX}/lib/liblmdb.a
+    - test ! -f ${PREFIX}/lib/liblmdb.a              # [unix]
 
     # headers:
-    - test -f ${PREFIX}/include/lmdb.h
+    - test -f ${PREFIX}/include/lmdb.h               # [unix]
+    - if not exist %LIBRARY_INC%\lmdb.h exit 1       # [win]
 
 about:
   home: https://www.openldap.org/software/repo.html
