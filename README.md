@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lmdb-feedstock/
 
 Summary: A high-performance embedded transactional key-value store database.
 
-Development: https://git.openldap.org/openldap/openldap/-/tree/mdb.master
+Development: https://github.com/LMDB/lmdb
 
 Current build status
 ====================
