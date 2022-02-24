@@ -17,5 +17,5 @@ set "ILIBS=liblmdb.dll"
 set "IPROGS="
 set "IDOCS="
 
-make
+make CC=%CC% CFLAGS=%CFLAGS% SOEXT=.dll ILIBS=liblmdb.dll IPROGS="" IDOCS=""
 make install
