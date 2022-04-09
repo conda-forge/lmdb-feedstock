@@ -14,7 +14,7 @@ build:
   number: 1
   skip: true  # [win]
   run_exports:
-    - {{ pin_subpackage("lmdb", max_pin="x.x") }}
+    - {{ pin_subpackage("lmdb", max_pin="x.x.x") }}
 
 requirements:
   build:
