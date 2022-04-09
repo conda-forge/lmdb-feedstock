@@ -10,7 +10,9 @@ fi
 export DESTDIR=$PREFIX
 
 make CC=$CC AR=$AR
-make test
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
+  make test
+fi
 make install
 
 # delete static library
