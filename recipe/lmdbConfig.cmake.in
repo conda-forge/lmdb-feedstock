@@ -1,0 +1,21 @@
+# lmdb cmake module
+#
+# This module defines the following variables in your project::
+#
+#   lmdb_FOUND          - True if lmdb is available
+#   lmdb_INCLUDE_DIR    - Include directories for lmdb
+#   lmdb_LIBRARY        - The library for dynamically linking
+
+@PACKAGE_INIT@
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR};${CMAKE_MODULE_PATH}")
+
+@LMDB_CONFIG_CODE@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-targets.cmake")
+get_target_property(
+    @PROJECT_NAME@_INCLUDE_DIR lmdb INTERFACE_INCLUDE_DIRECTORIES
+)
+get_target_property(
+    @PROJECT_NAME@_LIBRARY lmdb LOCATION
+)

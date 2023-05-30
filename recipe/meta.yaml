@@ -11,8 +11,7 @@ source:
     - patches/Makefile.patch
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
   run_exports:
     - {{ pin_subpackage("lmdb", max_pin="x.x.x") }}
 
@@ -20,23 +19,40 @@ requirements:
   build:
     - make
     - {{ compiler('c') }}
+    - cmake  # [win]
+    - ninja  # [win]
 
 test:
+  requires:
+    # CMake needs compiler on Windows to be able to run package detection.
+    # See: https://discourse.cmake.org/t/questions-about-find-package-cli-msvc/6194
+    - {{ compiler('cxx') }}  # [win]
+    - cmake                  # [win]
+  files:
+    - cmake_test/
+
   commands:
     # binaries
-    - mdb_copy -V
-    - mdb_dump -V
-    - mdb_load -V
-    - mdb_stat -V
+    - mdb_copy -V  # [unix]
+    - mdb_dump -V  # [unix]
+    - mdb_load -V  # [unix]
+    - mdb_stat -V  # [unix]
 
     # presence of shared lib:
-    - test -f ${PREFIX}/lib/liblmdb.so
+    - test -f ${PREFIX}/lib/liblmdb.so               # [unix]
+    - if not exist %LIBRARY_BIN%\lmdb.dll exit 1     # [win]
+    - if not exist %LIBRARY_LIB%\lmdb.lib exit 1     # [win]
 
     # absence of static lib:
-    - test ! -f ${PREFIX}/lib/liblmdb.a
+    - test ! -f ${PREFIX}/lib/liblmdb.a              # [unix]
 
     # headers:
-    - test -f ${PREFIX}/include/lmdb.h
+    - test -f ${PREFIX}/include/lmdb.h               # [unix]
+    - if not exist %LIBRARY_INC%\lmdb.h exit 1       # [win]
+
+    # Test CMake installation on Windows
+    - cd cmake_test                                  # [win]
+    - cmake %CMAKE_ARGS% .                           # [win]
 
 about:
   home: https://www.openldap.org/software/repo.html
@@ -51,3 +67,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - h-vetinari
+    - jjerphan
