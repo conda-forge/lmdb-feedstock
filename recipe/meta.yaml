@@ -11,7 +11,7 @@ source:
     - patches/Makefile.patch
 
 build:
-  number: 0
+  number: 1001
   run_exports:
     - {{ pin_subpackage("lmdb", max_pin="x.x.x") }}
 
