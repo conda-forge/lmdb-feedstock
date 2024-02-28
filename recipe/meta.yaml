@@ -11,9 +11,9 @@ source:
     - patches/Makefile.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
-    - {{ pin_subpackage("lmdb", max_pin="x.x.x") }}
+    - {{ pin_subpackage("lmdb", max_pin="x.x") }}
 
 requirements:
   build:
