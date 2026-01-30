@@ -20,15 +20,15 @@ requirements:
     - make
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - cmake  # [win]
-    - ninja  # [win]
+    - cmake <4  # [win]
+    - ninja     # [win]
 
 test:
   requires:
     # CMake needs compiler on Windows to be able to run package detection.
     # See: https://discourse.cmake.org/t/questions-about-find-package-cli-msvc/6194
     - {{ compiler('cxx') }}  # [win]
-    - cmake                  # [win]
+    - cmake <4               # [win]
   files:
     - cmake_test/
 
