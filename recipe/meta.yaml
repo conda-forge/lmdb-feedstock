@@ -9,9 +9,14 @@ source:
   sha256: 18b021fd589d30cc08860a9550a30ae51637117451385e9581616da751326632
   patches:
     - patches/Makefile.patch
+    - patches/cve-2019-16224-validate-db-flags.patch
+    - patches/cve-2019-16225-reject-dirty-pages.patch
+    - patches/cve-2019-16226-validate-node-del-size.patch
+    - patches/cve-2019-16227-guard-xcursor-null.patch
+    - patches/cve-2019-16228-validate-psize.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("lmdb", max_pin="x.x") }}
 
@@ -25,12 +30,14 @@ requirements:
 
 test:
   requires:
+    - {{ compiler('c') }}    # [unix]
     # CMake needs compiler on Windows to be able to run package detection.
     # See: https://discourse.cmake.org/t/questions-about-find-package-cli-msvc/6194
     - {{ compiler('cxx') }}  # [win]
     - cmake <4               # [win]
   files:
     - cmake_test/
+    - patch_tests/           # [unix]
 
   commands:
     # binaries
@@ -54,6 +61,10 @@ test:
     # Test CMake installation on Windows
     - cd cmake_test                                  # [win]
     - cmake %CMAKE_ARGS% .                           # [win]
+
+    # CVE-2019-16224..16228 patch regression tests
+    - $CC patch_tests/test_cve_patches.c -o test_cve_patches -I${PREFIX}/include -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib -llmdb  # [unix]
+    - ./test_cve_patches                                                                                                           # [unix]
 
 about:
   home: https://www.openldap.org/software/repo.html
