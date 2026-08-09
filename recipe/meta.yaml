@@ -1,4 +1,4 @@
-{% set version = "0.9.35" %}
+{% set version = "1.0.1" %}
 
 package:
   name: lmdb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/LMDB/lmdb/archive/refs/tags/LMDB_{{ version }}.tar.gz
-  sha256: 18b021fd589d30cc08860a9550a30ae51637117451385e9581616da751326632
+  sha256: 7ce1db4b8c13f60e0881f12537340c73fb5e0125dba4daa6649a2314341855db
   patches:
     - patches/Makefile.patch
 
