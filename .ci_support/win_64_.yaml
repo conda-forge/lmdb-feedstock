@@ -9,6 +9,6 @@ channel_targets:
 cxx_compiler:
 - vs2022
 lmdb:
-- 0.9.29
+- '0.9'
 target_platform:
 - win-64
